@@ -97,6 +97,11 @@ namespace Machete.Data
         {
             return dbset.AsNoTracking().AsQueryable();
         }
+
+        public IQueryable<Activity> GetAllQS()
+        {
+            return dataContext.Activities.SqlQuery("SELECT  @p0", blogId)
+        }
     }
     /// <summary>
     /// 

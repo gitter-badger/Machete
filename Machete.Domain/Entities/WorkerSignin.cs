@@ -48,6 +48,16 @@ namespace Machete.Domain
         public int? memberStatus { get; set; }
         public DateTime dateforsignin { get; set; }
     }
+
+    public abstract class SigninSearchable : RecordSearchable
+    {
+        [StringLength(5)]
+        public virtual string dwccardnum { get; set; }
+        [StringLength(20)]
+        public string memberStatus { get; set; }
+        [StringLength(30)]
+        public string dateforsignin { get; set; }
+    }
     /// <summary>
     /// 
     /// </summary>

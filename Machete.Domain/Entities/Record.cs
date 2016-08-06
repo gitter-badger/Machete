@@ -65,4 +65,22 @@ namespace Machete.Domain
             }
         }
     }
+
+    public class RecordSearchable : ICloneable
+    {
+        public int ID { get; set; }
+        [StringLength(30)]
+        public string datecreated { get; set; }
+        [StringLength(30)]
+        public string dateupdated { get; set; }
+        [StringLength(30)]
+        public string Createdby { get; set; }
+        [StringLength(30)]
+        public string Updatedby { get; set; }
+
+        public object Clone()
+        {
+            return this.MemberwiseClone();
+        }
+    }
 }

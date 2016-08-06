@@ -72,6 +72,27 @@ namespace Machete.Domain
         public string notes { get; set; }
     }
 
+    public class ActivitySearchable : RecordSearchable
+    {
+
+        public virtual ICollection<ActivitySignin> Signins { get; set; }
+        [StringLength(50)]
+        public string name { get; set; }
+        [StringLength(50)]
+        public string type { get; set; }
+        [StringLength(30)]
+        public string dateStart { get; set; }
+        [StringLength(30)]
+        public string dateEnd { get; set; }
+        [StringLength(8)]
+        public string recurring { get; set; }
+        [StringLength(50)]
+        public string teacher { get; set; }
+        [StringLength(4000)]
+        public string notes { get; set; }
+
+    }
+
     public class ActivitySignin: Signin
     {
         public ActivitySignin()
@@ -83,4 +104,13 @@ namespace Machete.Domain
         public int? personID { get; set; }
         public virtual Person person {get; set;}
     }
+
+    public class ActivitySigninSearchable : SigninSearchable
+    {
+        public virtual ActivitySearchable Activity { get; set; }
+        public int activityID { get; set; }
+        public int? personID { get; set; }
+        public virtual Person person { get; set; }
+    }
+
 }
